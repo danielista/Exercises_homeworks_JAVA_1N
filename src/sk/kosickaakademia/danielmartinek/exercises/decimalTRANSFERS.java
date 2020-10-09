@@ -1,7 +1,8 @@
 package sk.kosickaakademia.danielmartinek.exercises;
 import java.util.Scanner;
 
-// Na vstupe žiada číslo a hodnotu do akej sustavy chceme preložiť sustavu
+// Na vstupe žiada číslo a hodnotu do akej sustavy chceme preložiť sustavu 2,8,16
+// vraj to robiť cez STRINGY :D lebo pri 16 už musime :D
 // takže ošetriť treba zle vstupy kým nezoberie dobrý vstup :D
 // vraj sa da aj farebne vypisovať do kozoly :DDDDDD
 //
