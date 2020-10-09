@@ -7,7 +7,7 @@ import java.util.Scanner;
 //
 
 
-public class decimaltoBinary {
+public class decimalTRANSFERS {
     public static void main(String[] args) {
 
         Scanner skenerik = new Scanner(System.in);
