@@ -2,7 +2,7 @@ package sk.kosickaakademia.danielmartinek.exercises;
 import java.util.Scanner;
 
 // APPLICATION which convert positive decimal number to selected number system (bin,oct or hexadec)
-
+// nájdete tu tri spôsoby riešenia, tie dva najefektivejšie sú v komentároch ;) :D
 
 public class decimalTRANSFERS {
     public static void main(String[] args) {
@@ -96,26 +96,11 @@ public class decimalTRANSFERS {
      */
 
 
-    public static String reverse(String input) {
 
-        if (input == null) {
-            return input;
-        }
-
-        String output = "";
-
-        for (int i = input.length() - 1; i >= 0; i--) {
-            output = output + input.charAt(i);
-        }
-
-        return output;
-    }
-
-
-    private static long octal(long number){
+    private static long octal(long number){             //Method decimalToOctal
         long octal = 1;
         while ( number>0 ){                              //
-            if (number%8 != 0) {                         //
+            if (number%8 != 0) {                         // celočíselne delenie so zvyškom
                 octal = (octal * 10) + (number%8);       //
             }else {
                 octal = octal * 10;                      //
@@ -143,19 +128,33 @@ public class decimalTRANSFERS {
 
 
 
-    private static long binary(long number) {
+    private static long binary(long number) {       // METHOD DecimalToBinary
         long binary = 1;
-        while ( number>0 ){                     // until number become a ZERO
-            if (number%2 == 1) {                  // The rest of integer by dividing by 2
-                binary = binary * 10 + 1;       // add an ONE to end
+        while ( number>0 ){                         // until number become a ZERO
+            if (number%2 == 1) {                    // The rest of integer by dividing by 2
+                binary = binary * 10 + 1;           // add an ONE to end
             }else {
-                binary = binary * 10;              // add ZERO to the end
-            }number /= 2;                        // divide the number
+                binary = binary * 10;               // add ZERO to the end
+            }number /= 2;                           // divide the number
         }
         return reverse(binary);
     }
 
-    private static long reverse(long fuckinginput) {
+
+
+    public static String reverse(String input) {    // REVERSE pre STRING
+        if (input == null) {
+            return null;
+        }
+        String output = "";
+        for (int i = input.length() - 1; i >= 0; i--) {
+            output = output + input.charAt(i);
+        }
+        return output;
+    }
+
+
+    private static long reverse(long fuckinginput) {   // reverse FOR NUMBERS
         long reversed = 1;
         int i=0;
         while(fuckinginput != 0) {
