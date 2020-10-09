@@ -1,6 +1,12 @@
 package sk.kosickaakademia.danielmartinek.exercises;
 import java.util.Scanner;
 
+// Na vstupe žiada číslo a hodnotu do akej sustavy chceme preložiť sustavu
+// takže ošetriť treba zle vstupy kým nezoberie dobrý vstup :D
+// vraj sa da aj farebne vypisovať do kozoly :DDDDDD
+//
+
+
 public class decimaltoBinary {
     public static void main(String[] args) {
 
@@ -9,6 +15,8 @@ public class decimaltoBinary {
         int number = skenerik.nextInt();
         int i = number;
         int binary = 1;
+        int octal = number;
+
 
         while ( number>0 ){                     // until number become a ZERO
             if (number%2 == 1) {                  // The rest of integer by dividing by 2
@@ -20,19 +28,18 @@ public class decimaltoBinary {
 
         binary = reverse(binary);
         System.out.println("An inverted number in binary: "+binary);
-
         System.out.print("TOTO JE CEZ METODU Z NETU V JAVE JE Binary representation of "+i+":  ");
         System.out.print(Integer.toBinaryString(i));
 
     }
     //////////////////// TU KONCI MAIN METODAA //////////////////////
-    private static int reverse(int binary) {
+    private static int reverse(int fuckinginput) {
         int reversed = 1;
         int i=0;
-        while(binary != 0) {
-            int digit = binary % 10;
+        while(fuckinginput != 0) {
+            int digit = fuckinginput % 10;
             reversed = reversed * 10 + digit;
-            binary /= 10;
+            fuckinginput /= 10;
             i++;
         }
         reversed %= (Math.pow(10,i));
