@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class vowelCOUNTING {
     public static void main(String[] args) {
+
+
         String data =" Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods. " ;
         int len = data.length();
         int vowelSUMMARY = 0;
