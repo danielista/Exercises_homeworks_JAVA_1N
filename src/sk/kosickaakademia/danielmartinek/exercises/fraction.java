@@ -1,8 +1,6 @@
 package sk.kosickaakademia.danielmartinek.exercises;
 import java.util.Scanner;
 
-// Zlomok vykráti ak sa bude dať na základný tvar
-
 public class fraction {
     public static void main(String[] args) {
 
