@@ -8,7 +8,6 @@ public class countBOUNCE {
         // NO neviem prečo mi nešiel skener.. spustil sa program
         // ale double nejak nechcelo načítať...
 
-
       /*  Scanner scenner = new Scanner(System.in);
         System.out.println("Enter Height and a KOef of bouncing, in [centiMeters] please: ");
         int height = scenner.nextInt();
