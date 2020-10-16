@@ -1,15 +1,15 @@
 package sk.kosickaakademia.danielmartinek.exercises;
-
 import java.util.Scanner;
+
+// Zlomok vykráti ak sa bude dať na základný tvar
 
 public class fraction {
     public static void main(String[] args) {
-        int menovatel = 0, citatel = 0;
+
         Scanner skenerik = new Scanner(System.in);
         System.out.println("Enter DENOMINATOR and NUMERATOR please: ");
         int numerator = skenerik.nextInt();
         int denominator = skenerik.nextInt();
-
         reduce (numerator,denominator);
     }
 
@@ -22,7 +22,7 @@ public class fraction {
             }
         }
         System.out.println("The FINAL reduced FRACTION is:  ");
-        System.out.println("NUMERATOR:  " + numerator);
+        System.out.println("  NUMERATOR:  " + numerator);
         System.out.println("DENOMINATOR:  " + denominator);
     }
 }
