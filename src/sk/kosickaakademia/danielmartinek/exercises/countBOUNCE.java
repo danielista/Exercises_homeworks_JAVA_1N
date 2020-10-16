@@ -1,23 +1,21 @@
 package sk.kosickaakademia.danielmartinek.exercises;
-
 import java.util.Scanner;
-
 public class countBOUNCE {
     public static void main(String[] args) {
+        // skener opravený a funkčný
 
-        // NO neviem prečo mi nešiel skener.. spustil sa program
-        // ale double nejak nechcelo načítať...
-
-      /*  Scanner scenner = new Scanner(System.in);
+        Scanner scenner = new Scanner(System.in);
         System.out.println("Enter Height and a KOef of bouncing, in [centiMeters] please: ");
-        int height = scenner.nextInt();
-        double koeficient = scenner.nextDouble();
-       */
 
-        System.out.println("Result: " + countBounces(200,0.9));
+        double height = scenner.nextDouble();
+        double koeficient = scenner.nextDouble();
+        System.out.println("The height is " + height + "cm and the koeficient is " + koeficient );
+
+        int result = countBounces(height,koeficient);
+        System.out.println("Result: " + result);
     }
 
-    public static int countBounces(int height, double koeficient){
+    public static int countBounces(double height, double koeficient){
         int bounces = 0;
         while (height > 100.00){
             height *= koeficient;
@@ -26,6 +24,11 @@ public class countBOUNCE {
         return bounces;
     }
 }
+
+
+
+
+
 
 /*
 ░░░░░░░░░░░░░░░░░░░░░░█████████
@@ -43,5 +46,4 @@ public class countBOUNCE {
 ░█▒▒▒███████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
 ░██▒▒▒▒▒▒▒▒▒▒████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
 ░░████████████░░░█████████████████
-
  */
