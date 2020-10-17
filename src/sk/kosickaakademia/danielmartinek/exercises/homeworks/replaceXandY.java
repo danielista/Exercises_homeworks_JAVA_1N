@@ -18,28 +18,27 @@ public class replaceXandY {
     public static void main(String[] args) {
 
         String number = "8X75Y2";
-        replaceXandY(number);
+        replaceChars(number);
 
     }
 
-    public static void replaceXandY (String number){
+    public static void replaceChars(String number){
         int len = number.length();
         int cislo=0;
 
-        for (int i=0; i<10; i++){
-            for (int j=0; j<10; j++){
-                for (int k=0; k<len; k++){
-                    int cha = number.charAt(k);     // var cha means char :D  cha-cha
-                    if (cha==88){                   // if the char is equal to 'X'
-                        cislo = (cislo*10) + i;     // replaced the X by i (from for loop)
-                    }else if (cha==89){             // if the char is equal to 'Y'
-                        cislo = (cislo*10) + j;     // replaced the Y by j (from for loop)
-                    }else { cislo = cislo*10 + Character.getNumericValue(cha); }
+        for (int i=0; i<10; i++) {
+            for (int j = 0; j < 10; j++) {
+                for (int k = 0; k < len; k++) {
+                    int cha = number.charAt(k);       // var cha means char :D  cha-cha
+                    if (cha == 88)
+                        cislo = (cislo * 10) + i;     // if the char is equal to 'X' and replaced the X by i (from for loop)
+                    else if (cha == 89)
+                        cislo = (cislo * 10) + j;     // if the char is equal to 'Y' and replaced the Y by j (from for loop)
+                    else cislo = cislo * 10 + Character.getNumericValue(cha);
                 }
 
-                if (cislo % 92 == 0) {              // Checking DIVISIBILITY of the current number
-                    System.out.print(cislo + " ");
-                }
+                // Checking DIVISIBILITY of the current number
+                if (cislo % 92 == 0) System.out.print(cislo + " ");
                 cislo = 0;
             }
         }
