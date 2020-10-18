@@ -15,17 +15,69 @@ public class sumFractions {
     public static void main(String[] args) {
         double summary =0;
         for (double i=1.00; i<101; i++) summary = summary + (1 / i);
-        System.out.println(summary);
+        System.out.println("Toto je môj výsledok: "+summary+"   .........ale snažím sa" +
+                "aj o nejaký postup na báze sčítania zlomkov. " +
+                "Ale už na 20. čísle mi to počíta aspoň 30 sekúnd... :D " +
+                "OKAY po 5 minútach spraví len 25 zlomkov :D" +
+                "No skúšal som to len pri prvých desiatich a jak hodinky presne");
+        System.out.println();
 
 
-        // toto je už Kristiánov kód.. :D má tam premennú navyše :P ale výsledky máme rovnaké
-        double myNum = 0;
-        double sum = 0;
-        for (var i = 1; i<=100; i++){
-            myNum = (double)1/i;
-            sum -= -myNum;
+        long citatel = 1;
+        long menovatel = 1;
+        long nextMenovatel = 2;
+        long nextCitatel = 1;
+        int darina = 1;
+        long finallresult;
+        int zlozenyZlomok = 0;
+        while (darina<101){
+            System.out.print(darina +".  "+ zlozenyZlomok+" " + citatel+"/"+menovatel+ "     " );
+
+
+            // sum two fractions
+            long help = menovatel;
+             menovatel = menovatel*nextMenovatel;
+             citatel = citatel * nextMenovatel;
+             nextCitatel = nextCitatel*help;
+             citatel = citatel + nextCitatel;
+
+            // reduce current fraction
+            long big = Math.max(citatel, menovatel);  // toto je TERNARNY OPERATOR
+            for (long i = big; i>=1; i-- ){
+                if (citatel%i == 0 && menovatel%i == 0){
+                    citatel /= i;
+                    menovatel /= i;
+                }
+            }
+            // myslel som že cez zložený zlomok budu menšie zlomky a až na konci ich vynásobím no
+            // bohužiaľ rovnako dlho to robí :D
+            zlozenyZlomok = zlozenyZlomok + (int) ((int) citatel/menovatel);
+            citatel = citatel%menovatel;
+
+
+            darina++;
+            nextMenovatel++;
+            nextCitatel = 1;
         }
-        System.out.println(sum);
+        finallresult = ((menovatel*zlozenyZlomok) + citatel) / menovatel;
+        System.out.println("FINALLY: " + finallresult);
+
+
 
     }
+
+
+
+    public static int reduce (int numerator, int denominator){
+        int big = (numerator > denominator) ? numerator : denominator;  // toto je TERNARNY OPERATOR
+        for (int i = big; i>=1; i-- ){
+            if (numerator%i == 0 && denominator%i == 0){
+                numerator /= i;
+                denominator /= i;
+            }
+        }
+
+        return numerator;
+    }
+
 }
