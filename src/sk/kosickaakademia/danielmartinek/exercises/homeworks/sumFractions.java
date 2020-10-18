@@ -62,22 +62,5 @@ public class sumFractions {
         finallresult = ((menovatel*zlozenyZlomok) + citatel) / menovatel;
         System.out.println("FINALLY: " + finallresult);
 
-
-
     }
-
-
-
-    public static int reduce (int numerator, int denominator){
-        int big = (numerator > denominator) ? numerator : denominator;  // toto je TERNARNY OPERATOR
-        for (int i = big; i>=1; i-- ){
-            if (numerator%i == 0 && denominator%i == 0){
-                numerator /= i;
-                denominator /= i;
-            }
-        }
-
-        return numerator;
-    }
-
 }
