@@ -27,6 +27,10 @@ public class SKOLAkolaOLAlaA {
 
 
 
+
+
+
+
 /*
 public static void skolaVola(String text){        // pôvodná syntaxne neokresaná metóda
         int len = text.length();

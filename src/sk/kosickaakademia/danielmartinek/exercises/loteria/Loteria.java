@@ -21,6 +21,7 @@ public class Loteria {
         System.out.println("\033[31;1m$$ WELCOME IN A Lott\033[32;1;2merry $$\033[0m");
         Loteria loteria = new Loteria();
 
+
         // zadavanie stávky
         loteria.enteringBet();
 

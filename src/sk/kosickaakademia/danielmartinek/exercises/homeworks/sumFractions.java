@@ -14,7 +14,7 @@ package sk.kosickaakademia.danielmartinek.exercises.homeworks;
 public class sumFractions {
     public static void main(String[] args) {
         double summary =0;
-        for (double i=1.00; i<101; i++) summary = summary + (1 / i);
+        for (double i=1.00; i<21; i++) summary = summary + (1 / i);
         System.out.println("Toto je môj výsledok: "+summary+"   .........ale snažím sa" +
                 "aj o nejaký postup na báze sčítania zlomkov. " +
                 "Ale už na 20. čísle mi to počíta aspoň 30 sekúnd... :D " +
@@ -28,9 +28,9 @@ public class sumFractions {
         long nextMenovatel = 2;
         long nextCitatel = 1;
         int darina = 1;
-        long finallresult;
+        double finallresult;
         int zlozenyZlomok = 0;
-        while (darina<101){
+        while (darina<21){
             System.out.print(darina +".  "+ zlozenyZlomok+" " + citatel+"/"+menovatel+ "     " );
 
 
