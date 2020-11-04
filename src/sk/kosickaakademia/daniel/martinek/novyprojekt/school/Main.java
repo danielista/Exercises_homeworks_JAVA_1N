@@ -3,6 +3,7 @@ package sk.kosickaakademia.daniel.martinek.novyprojekt.school;
 import sk.kosickaakademia.daniel.martinek.novyprojekt.school.hobby.Book;
 import sk.kosickaakademia.daniel.martinek.novyprojekt.school.hobby.Sport;
 import sk.kosickaakademia.daniel.martinek.novyprojekt.school.hobby.Movie;
+import sk.kosickaakademia.daniel.martinek.novyprojekt.school.pets.Cat;
 import sk.kosickaakademia.daniel.martinek.novyprojekt.school.pets.Dog;
 import sk.kosickaakademia.daniel.martinek.novyprojekt.school.pets.Fish;
 
@@ -31,9 +32,15 @@ public class Main {
 
         students[0].printHobbies();
 
-        students[0].setMyAnimal( new Dog() );
-        students[0].setMyAnimal( new Fish() );
+
+        students[0].setStudentAnimal( new Dog("Rex","Nemecky ovciak") );
+        students[0].setStudentAnimal( new Fish("Danielkaaaa","červenkastá") );
+        students[0].setStudentAnimal( new Cat("sivko",3) );
+
+        students[0].printStudentsAnimals();
     }
+
+
 
     private static void sortByAverage(Student[] students) {
         int len=students.length;
@@ -89,12 +96,10 @@ public class Main {
     private static Student[] initStudents() {
         Student[] s= new Student[10];
 
-        // 1. student
         Grades z1 = new Grades(3, 2, 3);
         Student s1 = new Student("Ivana", "Hornyakova",
                 z1, ClassName.N1, createDob("2003-11-04")  );
         s[0] = s1;
-
 
         Student s2 = new Student("Peter", "Baran",
                 new Grades(1, 2, 1), ClassName.N2,createDob("2010-05-30"));
@@ -126,7 +131,7 @@ public class Main {
         Student s10 = new Student("Filip", "Balaz", new Grades(3, 3, 4), ClassName.N1);
         s[9] = s10;
 
-
+        // pole študentov
         return s;
     }
 
