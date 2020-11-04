@@ -1,23 +1,53 @@
 package sk.kosickaakademia.daniel.martinek.novyprojekt.school;
 
-import java.text.DateFormat;
+import sk.kosickaakademia.daniel.martinek.novyprojekt.school.hobby.Book;
+import sk.kosickaakademia.daniel.martinek.novyprojekt.school.hobby.Sport;
+import sk.kosickaakademia.daniel.martinek.novyprojekt.school.hobby.Movie;
+import sk.kosickaakademia.daniel.martinek.novyprojekt.school.pets.Dog;
+import sk.kosickaakademia.daniel.martinek.novyprojekt.school.pets.Fish;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.Locale;
+
 
 
 public class Main {
     public static void main(String[] args) {
 
         Student[] students ;
-
         students = initStudents();
-        printN1Students(students);
-        printStudentsWhereAverageLE2(students); // LE <=   GT >   LT <   GE >=     EQ ==
-        // DU doplnit datum
-        // vypisat od 1.1.2000
+
+
+        Book b1 = new Book("Hlava XXII","J. Heller");
+        students[0].addHobby(b1);
+        Sport s1=new Sport("Hockey");
+        students[0].addHobby(s1);
+        Book b2 = new Book("Marina","A. Sladkovic");
+        students[0].addHobby(b2);
+
+        Movie m1=new Movie("Aladin",2019);
+        students[0].addHobby(m1);
+
+        students[0].printHobbies();
+
+        students[0].setMyAnimal( new Dog() );
+        students[0].setMyAnimal( new Fish() );
+    }
+
+    private static void sortByAverage(Student[] students) {
+        int len=students.length;
+        for(int i = 0;i<=len-1;i++){
+            for(int j=0; j< len-1-i;j++){
+                if(students[j].getGrades().getAverage()>students[j+1].getGrades().getAverage()){
+                    // ak podmienka plati, je potrebne vymenit A[j] <-> A[j+1]
+                    Student temp = students[j];
+                    students[j]=students[j+1];
+                    students[j+1] = temp;
+
+                }
+            }
+        }
     }
 
     private static void printStudentsWhereAverageLE2(Student[] students) {
@@ -25,8 +55,8 @@ public class Main {
         int len=students.length;
         System.out.println("List of students - where AVG <=2 :");
         for(i=0;i<len;i++) {
-            Grades temp = students[i].getGrades();
-            double avg = (temp.getEng() + temp.getMat() + temp.getPro()) / 3.0;
+
+            double avg = students[i].getGrades().getAverage();
             if(avg<=2)
                 System.out.println("   "+students[i].getFirstName()+" "+students[i].getLastName() + " "+avg);
         }
@@ -44,6 +74,18 @@ public class Main {
         System.out.println();
     }
 
+    private static void printAllStudents(Student[] students) {
+        int i;
+        int len=students.length;
+        System.out.println("List of students - 1N :");
+        for(i=0;i<len;i++){
+
+            System.out.println(students[i].toString());
+            //System.out.println("   "+students[i].getFirstName()+" "+students[i].getLastName());
+        }
+        System.out.println();
+    }
+
     private static Student[] initStudents() {
         Student[] s= new Student[10];
 
@@ -53,7 +95,7 @@ public class Main {
                 z1, ClassName.N1, createDob("2003-11-04")  );
         s[0] = s1;
 
-        //2. student
+
         Student s2 = new Student("Peter", "Baran",
                 new Grades(1, 2, 1), ClassName.N2,createDob("2010-05-30"));
         s[1] = s2;
@@ -84,13 +126,6 @@ public class Main {
         Student s10 = new Student("Filip", "Balaz", new Grades(3, 3, 4), ClassName.N1);
         s[9] = s10;
 
-        /*String[] fnames=new String[]{"Jan", "Ivan","Zuzka"};
-        String[] lnames=new String[]{"Horvath", "Jakes","Malikova"};
-        ClassName[] classNames=new ClassName[]{ClassName.N2, ClassName.N1, ClassName.N3};
-
-        for(int i=0;i<3;i++){
-            s[i+2] = new Student(fnames[i],lnames[i],null,classNames[i] );
-        }*/
 
         return s;
     }

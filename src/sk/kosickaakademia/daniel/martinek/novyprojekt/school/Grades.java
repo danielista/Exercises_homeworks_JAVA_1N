@@ -27,5 +27,9 @@ public class Grades {   // extends Object
     public String toString() {
         return "Grades: MAT: "+mat+"  ENG: "+eng+"  PRO: "+pro;
     }
+
+    public double getAverage(){
+        return (double)(mat+eng+pro)/3;   //(mat+eng+pro)/3.0;
+    }
 }
 
