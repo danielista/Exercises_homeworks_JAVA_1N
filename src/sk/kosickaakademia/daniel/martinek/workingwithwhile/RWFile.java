@@ -4,8 +4,6 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
-
 public class RWFile {
 
     public void copyFileWithCapital(String fileName){
@@ -61,7 +59,6 @@ public class RWFile {
             int c = 0;
             while((c = reader.read()) != -1)         //Read char by Char
             {
-
                 char character = (char) c;          //converting integer to char
 
                 // digit shifting
@@ -84,7 +81,42 @@ public class RWFile {
                     if (help>122) character = (char) (96 + (help - 122));
                     else character=(char)help;
                 }
-                System.out.print(character);
+                //System.out.print(character);      // výpis znaku
+                fw.write(character);
+            }
+            fr.close();
+            fw.close();
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
+
+
+
+    // creating new file D_"currenttime".txt which contain text from file a.txt withouts i and yota signs
+    public void makeDiktat (String fileName){
+        BufferedReader reader;
+        try{
+            if(!new File(fileName).exists()){ // vytvoril novu triedu s názvom
+                System.out.println("problem: file "+ fileName + " does not exist!!");
+                return;
+            }
+            FileReader fr = new FileReader(fileName);
+            File file = new File("outputs/"+getFileName("D_"));
+            file.createNewFile(); // vytvorenie noveho filu na defaultnom mieste
+
+            FileWriter fw = new FileWriter(file); // otvorenie filu pre zapisovanie
+            reader = new BufferedReader(fr);
+            int c ;
+            while((c = reader.read()) != -1)         //Read char by Char
+            {
+                char character = (char) c;          //converting integer to char
+
+                // looking for i,I,y,Y,í,Í,Ý,ý
+                if(character == 73 ||  character == 105 || character == 89 || character == 121 || character==236
+                        || character==221 || character==161 || character==205 || character==237|| character==253  ) character = (char) 95;
+
+               // System.out.print(character);      // v_p_s znaku
                 fw.write(character);
             }
             fr.close();
@@ -96,5 +128,25 @@ public class RWFile {
 
 
 }
+        /*
+          ▄████████  ▄█   ▄█          ▄████████    ▄████████           ▄█    ▄████████  ▄█    █▄     ▄████████
+           ███    ███ ███  ███         ███    ███   ███    ███          ███   ███    ███ ███    ███   ███    ███
+           ███    █▀  ███▌ ███         ███    █▀    ███    █▀           ███   ███    ███ ███    ███   ███    ███
+          ▄███▄▄▄     ███▌ ███        ▄███▄▄▄       ███                 ███   ███    ███ ███    ███   ███    ███
+         ▀▀███▀▀▀     ███▌ ███       ▀▀███▀▀▀     ▀███████████          ███ ▀███████████ ███    ███ ▀███████████
+           ███        ███  ███         ███    █▄           ███          ███   ███    ███ ███    ███   ███    ███
+           ███        ███  ███▌    ▄   ███    ███    ▄█    ███          ███   ███    ███ ███    ███   ███    ███
+           ███        █▀   █████▄▄██   ██████████  ▄████████▀       █▄ ▄███   ███    █▀   ▀██████▀    ███    █▀
+           ▀                                        ▀▀▀▀▀▀
+         */
+
+
+
+
+
+
+
+
+
 
 
