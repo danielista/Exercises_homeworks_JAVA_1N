@@ -1,10 +1,18 @@
-ajajaj kukuku  ý a ipsilony a take ujoviny you know baby :D
+Programovanie je proces zahŕňajúci činnosti od návrhu algoritmu, písanie, testovanie a ladenie zdrojového kódu
+počítačového programu (softvér), vrátane následnej údržby.
+0000 aaBbcCdD 5555 1 2 3 4 5 6 7 8 9 0 1 123469871026546
+tri 3
+dva 2
+jedna 1
+opaaa
 
-atoto
+V oblasti výpočtovej techniky ide o proces vytvárania algoritmov a počítačových programov vrátane ich testovania,
+ladenia a vypracovania dokumentácie na ich použitie. Programovanie je vytváranie a zapisovanie návodov riešenia
+problémov v programovacích jazykoch do tvaru programov na riadenie činnosti počítačov.
 
-je ďalší projekt skupinovíí ajajaj kuku sedela som na boku :D
+Návrh algoritmu obvykle určuje všeobecný postup riešenia danej úlohy. Zdrojový kód programu je zápisom algoritmu
+v zvolenom programovacom jazyku. Programom (algoritmom) nemusí byť nutne počítačový program - programy sú napr.
+aj návody na použitie, recepty v kuchárskych knihách a podobné.
 
-ajajaj
-kukukuku
-sedfela ä
-som na boku :D
+Cieľom programovania je vytvoriť program, ktorý vykazuje určité žiadúce správanie. Proces písania zdrojových kódov
+často vyžaduje odborné znalosti v mnohých rôznych odboroch, vrátane znalosti oblasti použitia.

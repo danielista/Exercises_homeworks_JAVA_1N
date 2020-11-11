@@ -4,12 +4,19 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
+
 public class RWFile {
+
     public void copyFileWithCapital(String fileName){
         BufferedReader reader;
         try{
+            if(new File(fileName).exists() == false){ // vytvoril novu triedu s názvom
+                System.out.println("problem: file "+ fileName + " does not exist!!");
+                return;
+            }
             FileReader fr = new FileReader(fileName);
-            File file = new File("outputs/"+getFileName());
+            File file = new File("outputs/"+getFileName("B_"));
             file.createNewFile(); // vytvorenie noveho filu na defaultnom mieste
 
             FileWriter fw = new FileWriter(file); // otvorenie filu pre zapisovanie
@@ -17,11 +24,9 @@ public class RWFile {
             String line;
             while((line = reader.readLine()) != null){
                 line = line.toUpperCase();
-                System.out.println(line);
-                fw.write(line+'\n');
+                //System.out.println(line);
+                fw.write(line+'\n'); // pridava enter do suboru kde píše :D
             }
-
-
             fr.close();
             fw.close();
         }catch (IOException ex){
@@ -30,15 +35,66 @@ public class RWFile {
     }
 
     // vytvorí meno súboru s aktuálnym dátumom  (b_[time].txt)
-    private String getFileName(){
+    private String getFileName(String prefix){
         String name;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HHmmss");
         LocalDateTime now = LocalDateTime.now();
 
-        name="b_"+dtf.format(now)+".txt";
+        name=prefix+dtf.format(now)+".txt";
         return name;
     }
 
+    public void copyAndEncryptFile (String fileName, int offset){ // tu daj druhý argument offset
+
+        BufferedReader reader;
+        try{
+            if(!new File(fileName).exists()){ // vytvoril novu triedu s názvom
+                System.out.println("problem: file "+ fileName + " does not exist!!");
+                return;
+            }
+            FileReader fr = new FileReader(fileName);
+            File file = new File("outputs/"+getFileName("C_"));
+            file.createNewFile(); // vytvorenie noveho filu na defaultnom mieste
+
+            FileWriter fw = new FileWriter(file); // otvorenie filu pre zapisovanie
+            reader = new BufferedReader(fr);
+            int c = 0;
+            while((c = reader.read()) != -1)         //Read char by Char
+            {
+
+                char character = (char) c;          //converting integer to char
+
+                // digit shifting
+                if(character > 47 && character < 58 ){ //tak toto sú cifry
+                    int help = (character+(offset%10));
+                        if (help>57) character = (char) (47 + (help - 57));
+                            else character=(char)help;
+                }
+
+                // uppercase letters shifting
+                if(character > 64 && character < 91){
+                    int help = (character+(offset%26));
+                    if (help>90) character = (char) (64 + (help - 90));
+                    else character=(char)help;
+                }
+
+                // lowercase letters shifting
+                if(character > 96 && character < 123){
+                    int help = (character+(offset%26));
+                    if (help>122) character = (char) (96 + (help - 122));
+                    else character=(char)help;
+                }
+                System.out.print(character);
+                fw.write(character);
+            }
+            fr.close();
+            fw.close();
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
+    }
 
 
 }
+
+
