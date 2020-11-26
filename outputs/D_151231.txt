@@ -1,0 +1,19 @@
+________
+Programovan_e je proces zahŕňajúc_ č_nnost_ od návrhu algor_tmu, p_san_e, testovan_e a laden_e zdrojového kódu
+poč_tačového programu (softvér), vrátane následnej údržb_.
+0000 aaBbcCdD 5555 1 2 3 4 5 6 7 8 9 0 1 123469871026546
+tr_ 3
+dva 2
+jedna 1
+opaaa
+
+V oblast_ v_počtovej techn_k_ _de o proces v_tváran_a algor_tmov a poč_tačov_ch programov vrátane _ch testovan_a,
+laden_a a v_pracovan_a dokumentác_e na _ch použ_t_e. Programovan_e je v_tváran_e a zap_sovan_e návodov r_ešen_a
+problémov v programovac_ch jaz_koch do tvaru programov na r_aden_e č_nnost_ poč_tačov.
+
+Návrh algor_tmu obv_kle určuje všeobecn_ postup r_ešen_a danej úloh_. Zdrojov_ kód programu je záp_som algor_tmu
+v zvolenom programovacom jaz_ku. Programom (algor_tmom) nemus_ b_ť nutne poč_tačov_ program - program_ sú napr.
+aj návod_ na použ_t_e, recept_ v kuchársk_ch kn_hách a podobné.
+
+C_eľom programovan_a je v_tvor_ť program, ktor_ v_kazuje urč_té ž_adúce správan_e. Proces p_san_a zdrojov_ch kódov
+často v_žaduje odborné znalost_ v mnoh_ch rôzn_ch odboroch, vrátane znalost_ oblast_ použ_t_a.
