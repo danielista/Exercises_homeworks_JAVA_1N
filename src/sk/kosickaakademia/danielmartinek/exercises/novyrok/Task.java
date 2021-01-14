@@ -40,5 +40,59 @@ public class Task {
     }
 
 
+    public int pocetMedzier(String text){
+        int len = text.length();
+        int pMedzier=0, pMalych=0, pVelkych=0, pCisel=0, pSlov=0, pViet=1;
+        for (int i=0; i<len; i++) {
+            char z = text.charAt(i);
+            if (z >= 'A' && z <= 'Z') pVelkych++;
+            if (z >= 'a' && z <= 'z') pMalych++;
+            if (z >= '0' && z <= '9') pCisel++;
+            if (z == '.' && text.charAt(i+1) == ' ') pViet++;
+            if (z == ' ') pMedzier++;
+
+            pSlov = pMedzier+1;
+
+        }
+        System.out.println("pocet Medzier je: " + pMedzier );
+
+     /*   System.out.println("pocet Slov je: " + pSlov );
+        System.out.println("pocet velkych písmen je: " + pVelkych  );
+        System.out.println("pocet malych písmen je: " + pMalych  );
+        System.out.println("pocet číslic je: " + pCisel  );
+        System.out.println("pocet viet je: " + pViet  );   */
+
+        return pMedzier;
+    }
+
+    public boolean isBinary (String number){
+        boolean is = true;
+        number = number.toLowerCase();
+        int len = number.length();
+        for (int i = 0; len > i; i++){
+            char z = number.charAt(i);
+            if (z!= '0' && z != '1') {
+                is = false;
+                break;
+            }
+        }
+        return is;
+    }
+
+    public int vowelConter(String data){
+        int len = data.length();
+        int vowelSUMMARY = 0;
+        data = data.toLowerCase();
+        for (int i = 0; len > i; i++){
+            char z=data.charAt(i);
+            if (z == 'a' || z=='e' || z=='i' || z=='o' || z=='u' || z=='y'){
+                vowelSUMMARY++;
+            }
+        }
+        System.out.println(vowelSUMMARY);
+        return vowelSUMMARY;
+    }
+
+
 
 }

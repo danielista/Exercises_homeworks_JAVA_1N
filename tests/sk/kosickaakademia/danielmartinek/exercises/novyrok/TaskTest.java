@@ -51,4 +51,28 @@ class TaskTest {
         assertEquals("jelenovipivonelej", task.reversed("jelenovipivonelej"));
         assertEquals("54321", task.reversed("12345"));
     }
+
+
+    @Test
+    void isBinary() {
+        Task task = new Task();
+        assertTrue(task.isBinary("01101010"));
+        assertTrue(task.isBinary("0110101111111111111111111000000000000000010101010000010"));
+
+        assertFalse(task.isBinary("0 11"));
+        assertFalse(task.isBinary("012311111001"));
+    }
+
+    @Test
+    void vowelConter() {
+        Task task = new Task();
+        assertEquals(3,task.vowelConter("Lalala"));
+        assertEquals(5,task.vowelConter("Dneska Bolo VeĽmmm krsn."));
+    }
+
+    @Test
+    void pocetMedzier() {
+        Task task = new Task();
+        assertEquals(3,task.pocetMedzier("DNES Je SKVELY DEN"));
+    }
 }
